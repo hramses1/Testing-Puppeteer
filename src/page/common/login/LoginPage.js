@@ -4,6 +4,7 @@ class LoginPage {
     this.usernameSelector = '#username';
     this.passwordSelector = '#password';
     this.loginButtonSelector = '#loginButton';
+    this.errorMessageSelector = '#error';
   }
 
   async navigate() {
@@ -26,6 +27,10 @@ class LoginPage {
     await this.enterUsername(username);
     await this.enterPassword(password);
     await this.clickLoginButton();
+  }
+
+  async getErrorMessage() {
+    return await this.page.$eval(this.errorMessageSelector, el => el.textContent);
   }
 }
 

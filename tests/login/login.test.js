@@ -1,5 +1,7 @@
+// tests/e2e/login.test.js
+
 const puppeteer = require('puppeteer');
-const LoginPage = require('../page/LoginPage');
+const LoginPage = require('../pageObjects/LoginPage');
 
 describe('Login tests', () => {
   let browser;
@@ -17,20 +19,20 @@ describe('Login tests', () => {
   test('should login with valid credentials', async () => {
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
-    await loginPage.login('validUsername', 'validPassword');
+    await loginPage.login('validUser', 'validPassword');
 
     // Assert that the login was successful
     const pageTitle = await page.title();
     expect(pageTitle).toBe('Dashboard');
   });
 
-  test('should not login with invalid credentials', async () => {
+  test('should show error message with invalid credentials', async () => {
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
-    await loginPage.login('invalidUsername', 'invalidPassword');
+    await loginPage.login('invalidUser', 'invalidPassword');
 
     // Assert that the login failed
-    const errorMessage = await page.$eval('#error', el => el.textContent);
+    const errorMessage = await loginPage.getErrorMessage();
     expect(errorMessage).toBe('Invalid username or password');
   });
 });
