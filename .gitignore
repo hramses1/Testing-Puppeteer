@@ -1,0 +1,53 @@
+# Node modules
+node_modules/
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Dependency directories
+jspm_packages/
+typings/
+
+# Build directories
+dist/
+build/
+
+# Coverage directories
+coverage/
+
+# Puppeteer downloads
+.puppeteer/
+
+# Jest cache
+jest/
+
+# Optional npm cache directory
+.npm/
+
+# Mac system files
+.DS_Store
+
+# Windows system files
+Thumbs.db
+
+# IDEs and editors
+.vscode/
+.idea/
+
+# Environmental variables
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+# Temporary files
+*.tmp
+*.swp
+
+# Ignore test results
+*.spec.js.snap
