@@ -1,5 +1,17 @@
 {
+  "name": "proyecto-puppertee",
+  "version": "1.0.0",
+  "description": "A project for Puppeteer testing",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
   "dependencies": {
-    "puppeteer": "^22.9.0"
+    "puppeteer-core": "^10.0.0"
+  },
+  "devDependencies": {
+    "jest": "^27.0.0",
+    "jest-puppeteer": "^5.0.4",
+    "puppeteer": "^10.0.0"
   }
 }
