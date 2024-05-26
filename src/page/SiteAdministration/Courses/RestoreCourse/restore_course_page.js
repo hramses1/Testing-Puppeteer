@@ -1,4 +1,4 @@
-class RestoreCoursePage {
+export class RestoreCoursePage {
     constructor(page) {
         this.page = page;
         this.siteAdminSelector = '[data-key="siteadminnode"]';
@@ -35,4 +35,4 @@ class RestoreCoursePage {
     }
 }
 
-module.exports = RestoreCoursePage;
+export default RestoreCoursePage;

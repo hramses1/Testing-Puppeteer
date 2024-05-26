@@ -1,8 +1,9 @@
 // tests/e2e/login.test.js
+import puppeteer from 'puppeteer';
+import LoginPage from '../../src/page/common/login/LoginPage';
+import { config as configDotenv } from 'dotenv';
 
-const puppeteer = require("puppeteer");
-const LoginPage = require("../../src/page/common/login/LoginPage");
-
+configDotenv();
 describe("Login tests", () => {
   let browser;
   let page;
@@ -15,11 +16,11 @@ describe("Login tests", () => {
   afterAll(async () => {
     await browser.close();
   });
-
+  
   test("should login with valid credentials", async () => {
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
-    await loginPage.login("hector.arismendi", "26812983r");
+    await loginPage.login(process.env.USER, process.env.PASSWORD);
     //Comprobar que el inicio de sesión fue exitoso
     const pageContent = await loginPage.verifiedAccess();
     expect(pageContent).toContain("Mis estudios");

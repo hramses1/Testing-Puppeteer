@@ -1,6 +1,9 @@
-const SiteAdminPage = require("../../SiteAdministration/site_admin_page");
+import { config as configDotenv } from 'dotenv';
+import SiteAdminPage from '../../SiteAdministration/site_admin_page';
 
-class LoginPage {
+configDotenv();
+
+export class LoginPage {
   constructor(page) {
     this.page = page;
     this.usernameSelector = '[name="username"]';
@@ -10,9 +13,9 @@ class LoginPage {
   }
 
   async navigate() {
-    await this.page.goto('https://betacampus.funiber.org/local/login/index.php');
+    await this.page.goto(process.env.URL);
     await this.page.setViewport({width: 1080, height: 1024});
-    return this.page
+    return this.page;
   }
 
   async enterUsername(username) {
@@ -53,4 +56,4 @@ class LoginPage {
   }
 }
 
-module.exports = LoginPage;
+export default LoginPage;

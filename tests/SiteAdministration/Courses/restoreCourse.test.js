@@ -1,5 +1,8 @@
-const puppeteer = require("puppeteer");
-const LoginPage = require("../../../src/page/common/login/LoginPage");
+import puppeteer from 'puppeteer';
+import LoginPage from '../../../src/page/common/login/LoginPage';
+import { config as configDotenv } from 'dotenv';
+
+configDotenv();
 describe("restore course tests", () => {
   let browser;
   let page;
@@ -16,7 +19,7 @@ describe("restore course tests", () => {
   test("should login with valid credentials and upload a file", async () => {
     const loginPage = new LoginPage(page);
     await loginPage.navigate();
-    await loginPage.login("hector.arismendi", "26812983r");
+    await loginPage.login(process.env.USER, process.env.PASSWORD);
     const siteAdminPage = await loginPage.siteAdmin();
     await siteAdminPage.restoreCourse();
   }, 30000);

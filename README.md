@@ -43,6 +43,7 @@ npm test
 ├── 📄 package-lock.json
 ├── 📄 package.json
 ├── 📄 README.md
+├── 📄 babel.config.js
 ├── 📁 src
 │   ├── 📁 data
 │   │   └── 📄 data.json

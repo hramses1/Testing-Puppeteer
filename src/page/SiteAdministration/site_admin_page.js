@@ -1,6 +1,6 @@
-const RestoreCoursePage = require("../SiteAdministration/Courses/RestoreCourse/restore_course_page");
-const path = require('path');
-class SiteAdminPage {
+import { RestoreCoursePage } from "../SiteAdministration/Courses/RestoreCourse/restore_course_page";
+import path from "path";
+export class SiteAdminPage {
     constructor(page) {
         this.page = page;
     }
@@ -9,10 +9,9 @@ class SiteAdminPage {
         await restoreCourses.clickSiteAdmin();
         await restoreCourses.clickCourses();
         await restoreCourses.clickRestoreCourse();
-
         const filePath = path.relative(process.cwd(), "path/to/your/file.ext");
         await restoreCourses.uploadFile(filePath);
     }
 }
 
-module.exports = SiteAdminPage;
+export default SiteAdminPage;
