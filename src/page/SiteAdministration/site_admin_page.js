@@ -9,8 +9,8 @@ export class SiteAdminPage {
         await restoreCourses.clickSiteAdmin();
         await restoreCourses.clickCourses();
         await restoreCourses.clickRestoreCourse();
-        const filePath = path.relative(process.cwd(), "path/to/your/file.ext");
-        await restoreCourses.uploadFile(filePath);
+        // const filePath = path.relative(process.cwd(), "../../data/course-1218-md020-vea.mbz");
+        // await restoreCourses.uploadFile(filePath);
     }
 }
 

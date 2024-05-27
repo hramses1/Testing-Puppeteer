@@ -6,7 +6,7 @@ export class RestoreCoursePage {
         this.dropdownButtonSelector = '[data-toggle="dropdown"]';
         this.errorMessageSelector = "#error";
         this.coursesSelector = '[data-key="courses"]'
-        this.restoreCourseSelector = '.col-sm-9'
+        this.restoreCourseSelector = '.col-sm-9 .list-unstyled li a';
     }
 
     async clickSiteAdmin() {
@@ -20,10 +20,15 @@ export class RestoreCoursePage {
         await this.page.click(this.coursesSelector)
     }    
     
-    async clickRestoreCourse() {        
-        await this.page.waitForSelector(this.restoreCourseSelector);
-        const elements = await this.page.$$(this.restoreCourseSelector);
-        await elements[3].click();
+    async clickRestoreCourse() {
+        const elements = await this.page.$$(this.restoreCourseSelector, { visible: true });
+        // Verifica que el tercer elemento existe y haz clic en él
+        if (elements.length >= 2) {
+            await elements[1].click(); // Índice 2 porque es el tercer elemento (0-based index)
+            console.log('Click realizado en el tercer enlace');
+        } else {
+            console.log('No hay suficientes enlaces en la lista');
+        }
     }
 
     async uploadFile(filePath) {

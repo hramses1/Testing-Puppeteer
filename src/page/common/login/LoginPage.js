@@ -1,6 +1,5 @@
 import { config as configDotenv } from 'dotenv';
 import SiteAdminPage from '../../SiteAdministration/site_admin_page';
-
 configDotenv();
 
 export class LoginPage {
@@ -33,10 +32,10 @@ export class LoginPage {
     await this.page.click(this.loginButtonSelector);
   }
 
-  async login(username, password) {
-    await this.enterUsername(username);
+  async login(user) {
+    await this.enterUsername(user.username);
     await this.clickLoginButton();
-    await this.enterPassword(password);
+    await this.enterPassword(user.password);
     await this.clickLoginButton();
     await this.page.waitForNavigation({ waitUntil: 'networkidle2' });
   }

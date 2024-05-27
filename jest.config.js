@@ -2,7 +2,9 @@ module.exports = {
   preset: 'jest-puppeteer',
   testEnvironment: 'node',
   transform: {
-    '^.+\\.jsx?$': 'babel-jest',
+    '^.+\\.[tj]sx?$': 'babel-jest', // Transforma archivos .ts, .tsx, .js y .jsx usando babel-jest
   },
-  testTimeout: 30000, // Aumentar el tiempo de espera del test si es necesario
+  testMatch: ['**/?(*.)+(spec|test).[tj]s?(x)'], // Coincide con archivos de prueba .ts, .tsx, .js y .jsx
+  moduleFileExtensions: ['ts', 'tsx', 'js', 'jsx', 'json', 'node'],
+  testTimeout: 30000,
 };
