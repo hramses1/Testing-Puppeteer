@@ -1,17 +1,28 @@
 import { RestoreCoursePage } from "../SiteAdministration/Courses/RestoreCourse/restore_course_page";
-import path from "path";
+
 export class SiteAdminPage {
-    constructor(page) {
-        this.page = page;
-    }
-    async restoreCourse() {
-        const restoreCourses = new RestoreCoursePage(this.page);
-        await restoreCourses.clickSiteAdmin();
-        await restoreCourses.clickCourses();
-        await restoreCourses.clickRestoreCourse();
-        // const filePath = path.relative(process.cwd(), "../../data/course-1218-md020-vea.mbz");
-        // await restoreCourses.uploadFile(filePath);
-    }
+  constructor(page) {
+    this.page = page;
+  }
+
+  async restoreCourse() {
+    const restoreCourses = new RestoreCoursePage(this.page);
+
+    // await restoreCourses.clickSiteAdmin();
+    // await restoreCourses.clickCourses();
+    // await restoreCourses.clickRestoreCourse();
+    await restoreCourses.uploadFile();
+    await restoreCourses.clickRestoreButton();
+    await restoreCourses.clickSubmitButton();
+    await restoreCourses.typeInTextInput('Programas');
+    await restoreCourses.clickSubmitButton();
+    await restoreCourses.clickRestoreCategory();
+    await restoreCourses.clickContinueButton();
+    await restoreCourses.clickFinalSubmitButton();
+    await restoreCourses.clickFinalSubmitButton();
+    await restoreCourses.clickFinalSubmitButton();
+    await restoreCourses.clickSubmitButton();
+  }
 }
 
 export default SiteAdminPage;

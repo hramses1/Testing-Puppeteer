@@ -34,10 +34,10 @@ export class LoginPage {
 
   async login(user) {
     await this.enterUsername(user.username);
-    await this.clickLoginButton();
+    //await this.clickLoginButton();
     await this.enterPassword(user.password);
     await this.clickLoginButton();
-    await this.page.waitForNavigation({ waitUntil: 'networkidle2' });
+    //await this.page.waitForNavigation({ waitUntil: 'networkidle2' });
   }
 
   async siteAdmin() {
